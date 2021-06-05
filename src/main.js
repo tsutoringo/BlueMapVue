@@ -27,6 +27,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import {BlueMapApp} from "@/js/BlueMapApp";
 import i18n from './i18n';
+import './registerServiceWorker'
 
 // utils
 String.prototype.includesCI = function (val) {
