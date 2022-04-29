@@ -23,9 +23,9 @@
  * THE SOFTWARE.
  */
 
-import Vue from 'vue'
-import App from './App.vue'
-import {BlueMapApp} from "@/js/BlueMapApp";
+import { createApp } from 'vue';
+import App from './App.vue';
+import {BlueMapApp} from '@/js/BlueMapApp';
 import i18n from './i18n';
 
 // utils
@@ -34,14 +34,16 @@ String.prototype.includesCI = function (val) {
 }
 
 // bluemap app
-const bluemap = new BlueMapApp(document.getElementById("map-container"));
-window.bluemap = bluemap;
+// const bluemap = new BlueMapApp(document.getElementById("map-container"));
+// window.bluemap = bluemap;
 
-// init vue
-Vue.config.productionTip = false;
-Object.defineProperty(Vue.prototype, '$bluemap', {
-  get() { return bluemap; }
-});
+// Object.defineProperty(Vue.prototype, '$bluemap', {
+//   get() { return bluemap; }
+// });
+
+createApp(App)
+  .use(i18n)
+  .mount('#app');
 
 const vue = new Vue({
   i18n,
